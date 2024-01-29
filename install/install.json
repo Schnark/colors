@@ -1,0 +1,17 @@
+{
+	"@comment": "Note that the code to transform these data into a webpage is in https://github.com/Schnark/schnark.github.io",
+	"title": {
+		"en": "Colors – App for Firefox OS",
+		"de": "Colors – App für Firefox OS"
+	},
+	"serviceworker": false,
+	"icon": "res/icon128.png",
+	"screenshots": [
+		"1.png",
+		"2.png"
+	],
+	"desc": {
+		"en": ["This app allows you to create and modify color schemes."],
+		"de": ["Diese App erlaubt das Erstellen und Bearbeiten von Farbschemata."]
+	}
+}

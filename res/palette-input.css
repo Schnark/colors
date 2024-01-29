@@ -1,0 +1,50 @@
+.color-palette {
+	margin: 0.1em;
+	padding: 0;
+}
+
+.color-palette li {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	margin: 0.1em;
+}
+
+.color-palette li.white {
+	outline: solid thin black;
+	outline-offset: -1px;
+	-moz-outline-radius: 50%;
+}
+
+#palette-input-display {
+	display: inline-block;
+	margin-right: 2em;
+	vertical-align: middle;
+}
+
+#palette-input-display .selected {
+	outline: solid blue;
+	outline-offset: -1px;
+	-moz-outline-radius: 50%;
+}
+
+#palette-input-display .selected.not-blue {
+	outline: solid red;
+}
+
+.palette-input button {
+	font: inherit;
+	width: 2em;
+	height: 2em;
+	background: none;
+	border: solid;
+	border-radius: 50%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.palette-input button:disabled {
+	color: #888;
+}
+

@@ -1,0 +1,54 @@
+.tool h2 {
+	cursor: pointer;
+}
+
+.tool h2::before {
+	vertical-align: 2px;
+	content: url('data:image/svg+xml,<svg%20width="10"%20height="10"%20xmlns="http://www.w3.org/2000/svg"><path%20d="M0,0L5,6L10,0"%20fill="none"%20stroke="black"%20stroke-width="2px"/></svg>') " ";
+}
+
+.tool.inactive h2::before {
+	content: url('data:image/svg+xml,<svg%20width="10"%20height="10"%20xmlns="http://www.w3.org/2000/svg"><path%20d="M0,0L6,5L0,10"%20fill="none"%20stroke="black"%20stroke-width="2px"/></svg>') " ";
+}
+
+.tool.inactive .body {
+	display: none;
+}
+
+.tool canvas {
+	width: 100%;
+	height: 4em;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	outline: thin solid #000;
+}
+
+.tool table tr:nth-child(odd) td:nth-child(odd) {
+	background-color: #999;
+}
+
+.tool table tr:nth-child(odd) td:nth-child(even) {
+	background-color: #bbb;
+}
+
+.tool table tr:nth-child(even) td:nth-child(odd) {
+	background-color: #bbb;
+}
+
+.tool table td:empty {
+	background-color: #666 !important;
+}
+
+.tool table th {
+	width: 2em;
+	height: 2em;
+}
+
+.tool table td {
+	text-align: center;
+}
+
+.tool table td.selected {
+	outline: solid blue;
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+	<path d="M 59,30 A 29,29 0 1 0 30,59 C 32.7,59 34.8,56.8 34.8,54.2 C 34.8,52.9 34.4,51.8 33.6,50.9 C 32.8,50.1 32.4,49 32.4,47.7 C 32.4,45 34.5,42.9 37.2,43 L 43,43 C 51.8,42.9 59,35.7 59,30 z" fill="#fda" />
+	<circle cx="12" cy="25" r="5" fill="#f00" />
+	<circle cx="22" cy="12" r="5" fill="#ff2" />
+	<circle cx="38" cy="12" r="5" fill="#00f" />
+	<circle cx="48" cy="25" r="5" fill="#0a0" />
+</svg>

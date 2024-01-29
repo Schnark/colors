@@ -1,0 +1,16 @@
+{
+	"version": "1.0",
+	"name": "Colors",
+	"description": "Create and modify color palettes",
+	"size": 41502,
+	"package_path": "https://schnark.github.io/colors/colors.zip",
+	"icons": {
+		"128": "/res/icon128.png",
+		"512": "/res/icon512.png"
+	},
+	"developer": {
+		"name": "Michael Müller",
+		"url": "https://github.com/Schnark"
+	},
+	"default_locale": "en"
+}
