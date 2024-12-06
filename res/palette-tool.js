@@ -10,27 +10,42 @@ function PaletteTool (paletteInput) {
 	this.modeOKLab = document.getElementById('palette-tool-mode-oklab');
 	this.modeHSL.addEventListener('change', this.update.bind(this));
 	this.modeOKLab.addEventListener('change', this.update.bind(this));
+	this.selectInput = document.getElementById('palette-tool-select');
+	this.selectInput.addEventListener('change', this.update.bind(this));
 	this.output = document.getElementById('palette-tool-output');
 	this.output.addEventListener('click', this.onClick.bind(this));
+	this.buildSelect();
 }
 
 PaletteTool.prototype = new Tool();
 
 PaletteTool.prototype.updateOnSelectionChange = true;
 
+PaletteTool.prototype.buildSelect = function () {
+	this.selectInput.innerHTML = '<option value="">(none)</option>' + storedCollection.getMore().map(function (data) {
+		return '<option>' + data.label + '</option>';
+	}).join('');
+};
+
 PaletteTool.prototype.update = function () {
-	var index, palette, colors;
+	var index, palette, colors, label;
 	index = this.paletteInput.selectedIndex;
 	palette = this.paletteInput.getPalette();
 
 	if (index > -1) {
 		this.modeHSL.disabled = false;
 		this.modeOKLab.disabled = false;
+		this.selectInput.disabled = true;
 		colors = palette.getColor(index).getSimilarColors(this.modeOKLab.checked);
 	} else {
 		this.modeHSL.disabled = true;
 		this.modeOKLab.disabled = true;
+		this.selectInput.disabled = false;
 		colors = storedCollection.getCollections();
+		label = this.selectInput.value;
+		if (label) {
+			colors.push({label: label, colors: storedCollection.getByLabel(label)});
+		}
 		colors.forEach(function (entry) {
 			entry.colors = entry.colors.map(function (code) {
 				return Color.fromHex(code);

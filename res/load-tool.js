@@ -4,8 +4,6 @@ LoadTool =
 (function () {
 "use strict";
 
-//TODO allow user created palettes
-
 function LoadTool (paletteInput) {
 	this.init(document.getElementById('load-tool'), paletteInput);
 	this.selectedPalette = new Palette();
@@ -14,15 +12,11 @@ function LoadTool (paletteInput) {
 	this.selectInput.addEventListener('change', this.onSelect.bind(this));
 	document.getElementById('load-tool-use').addEventListener('click', this.onUse.bind(this));
 	document.getElementById('load-tool-add').addEventListener('click', this.onAdd.bind(this));
+	document.getElementById('load-tool-store').addEventListener('click', this.onStore.bind(this));
+	document.getElementById('load-tool-remove').addEventListener('click', this.onRemove.bind(this));
 	this.buildSelect();
 	this.onSelect();
 }
-
-LoadTool.defaultPalettes = {
-	Light: ['#ffffff', '#222222', '#72777d', '#9a373b', '#2b55ab'],
-	Dark: ['#222222', '#c8ccd1', '#a2a9b1', '#db9c9e', '#91ade4'],
-	Sepia: ['#f4ecd8', '#5b4636', '#676c71', '#883134', '#264b97']
-};
 
 LoadTool.prototype = new Tool();
 
@@ -59,6 +53,26 @@ LoadTool.prototype.onAdd = function () {
 		}
 	});
 	this.paletteInput.setPalette(palette);
+};
+
+LoadTool.prototype.onStore = function () {
+	var list = [], label;
+	this.paletteInput.getPalette().forEach(function (color) {
+		list.push(color.toString());
+	});
+	label = window.prompt('Name of palette:');
+	if (label) {
+		label = label.replace(/</g, '&lt;');
+		storedCollection.storePalette(label, list);
+		this.buildSelect();
+		this.onSelect();
+	}
+};
+
+LoadTool.prototype.onRemove = function () {
+	storedCollection.removePalette(this.selectInput.value);
+	this.buildSelect();
+	this.onSelect();
 };
 
 return LoadTool;

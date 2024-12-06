@@ -61,6 +61,7 @@
 <p><label>Palette: <select id="load-tool-select"></select></label></p>
 <p><canvas id="load-tool-canvas"></canvas></p>
 <p><button id="load-tool-use">Use this palette</button> <button id="load-tool-add">Extend current palette</button></p>
+<p><button id="load-tool-store">Store current palette</button> <button id="load-tool-remove">Remove/reset this palette</button></p>
 </div>
 </section>
 
@@ -74,7 +75,7 @@
 <section id="palette-tool">
 <h2>Build palette</h2>
 <div class="body">
-<p>Calculations in: <label><input checked type="radio" name="palette-tool-mode" id="palette-tool-mode-hsl">HSL</label> / <label><input type="radio" name="palette-tool-mode" id="palette-tool-mode-oklab">OKLab</label></p>
+<p>Calculations in: <label><input checked type="radio" name="palette-tool-mode" id="palette-tool-mode-hsl">HSL</label> / <label style="margin-right: 2em;"><input type="radio" name="palette-tool-mode" id="palette-tool-mode-oklab">OKLab</label> <label>Additional colors: <select id="palette-tool-select"></select></label></p>
 <div id="palette-tool-output"></div>
 </div>
 </section>
